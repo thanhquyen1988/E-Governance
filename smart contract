@@ -1,0 +1,353 @@
+pragma solidity ^0.4.18;
+
+contract QuanLyThongTinCongDan {
+
+    address public UyBan;
+
+    modifier onlyUyban() {
+        require(msg.sender == UyBan);
+        _;
+    }
+
+    function QuanLyThongTinCongDan() public {
+        UyBan = msg.sender;
+    }
+    
+
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //       Canhsat Register Smart Contract                 //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//
+
+ 
+   struct Canhsat{
+        bool Is_Registered;
+        string IPFS_Information;
+        string IPFS_Publickey;
+    }
+    
+    mapping (address => Canhsat)public Canhsats;
+      
+        
+    function Them_Canhsat(address _address, string _IPFS_Information, string _IPFS_Publickey) onlyUyban public {
+        require(_address != 0);
+        Canhsats[_address].Is_Registered = true;
+        Canhsats[_address].IPFS_Information = _IPFS_Information;
+        Canhsats[_address].IPFS_Publickey = _IPFS_Publickey;
+    }
+    
+    function Sua_Canhsat(address _address, string _IPFS_Information) onlyUyban public {
+        require(Canhsats[_address].Is_Registered == true);
+        Canhsats[_address].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Xoa_Canhsat(address _address) onlyUyban public {
+        Canhsats[_address].Is_Registered = false;
+    }
+
+    function Xem_Canhsat(address _address) view public returns (address, bool, string) {
+        return (_address, Canhsats[_address].Is_Registered, Canhsats[_address].IPFS_Information);
+    }
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //          CongDan Register Smart Contract              //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//
+// 
+   struct CongDan{
+        bool Is_register;
+        uint40 MaDinhDanh;
+        string IPFS_Information;
+        string IPFS_Publickey;
+    }
+
+    mapping(uint40 => CongDan) public CongDans;
+
+    function Them_CongDan(address _address, uint40 _MaDinhDanh, string _IPFS_Information,  string _IPFS_Publickey) onlyUyban public {
+        require(_address != 0);
+        CongDans[_MaDinhDanh].Is_register = true;
+        CongDans[_MaDinhDanh].MaDinhDanh = _MaDinhDanh;
+        CongDans[_MaDinhDanh].IPFS_Information = _IPFS_Information;
+        CongDans[_MaDinhDanh].IPFS_Publickey = _IPFS_Publickey;
+    }
+    
+    function Sua_CongDan(uint40 _MaDinhDanh, string _IPFS_Information) onlyUyban public{
+        require( CongDans[_MaDinhDanh].Is_register = true);
+        CongDans[_MaDinhDanh].IPFS_Information = _IPFS_Information;
+    }
+    
+     function Xoa_Congdan(uint40 _MaDinhDanh) onlyUyban public {
+         require( CongDans[_MaDinhDanh].Is_register = true);
+        CongDans[_MaDinhDanh].Is_register = false;
+    }
+
+    function Xem_CongDan(uint40 _MaDinhDanh) view public returns (uint40, string) {
+        return (CongDans[_MaDinhDanh].MaDinhDanh, CongDans[_MaDinhDanh].IPFS_Information);
+    }
+   
+   
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //              HoChieu CongDan Smart Contract         //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//   
+    
+    struct HoChieu{
+        bool Is_Registered;
+        uint40 MaDinhDanh;
+        string IPFS_Information;
+        string IPFS_Image;
+
+    }
+
+    modifier onlyCanhsat {
+        require(Canhsats[msg.sender].Is_Registered == true);
+        _;
+    }
+
+    mapping (uint40 => HoChieu) public HoChieus;
+   // mapping (address => Canhsat) public Canhsats;
+     
+    function Them_HoChieu(uint40 _MaDinhDanh, string _IPFS_Information, string _IPFS_Image) onlyCanhsat public {
+        require(_MaDinhDanh != 0 && CongDans[_MaDinhDanh].Is_register == true);
+        HoChieus[_MaDinhDanh].Is_Registered = true;
+        HoChieus[_MaDinhDanh].MaDinhDanh = _MaDinhDanh;
+        HoChieus[_MaDinhDanh].IPFS_Information = _IPFS_Information;
+        HoChieus[_MaDinhDanh].IPFS_Image = _IPFS_Image;
+
+    }
+    
+    function Sua_HoChieu(uint40 _MaDinhDanh, string _IPFS_Information, string _IPFS_Image) onlyCanhsat public {
+        require( HoChieus[_MaDinhDanh].Is_Registered = true);
+        HoChieus[_MaDinhDanh].IPFS_Information = _IPFS_Information;
+        HoChieus[_MaDinhDanh].IPFS_Image = _IPFS_Image;
+
+    }
+    
+  
+    function Xoa_HoChieu(uint40 _MaDinhDanh) onlyCanhsat public{
+        require( HoChieus[_MaDinhDanh].Is_Registered = true);
+        HoChieus[_MaDinhDanh].Is_Registered = false;
+    }
+    
+
+    function Xem_HoChieu(uint40 _MaDinhDanh) view public returns (uint40, string, string) {
+        require(HoChieus[_MaDinhDanh].Is_Registered == true);
+        return (HoChieus[_MaDinhDanh].MaDinhDanh, HoChieus[_MaDinhDanh].IPFS_Information, HoChieus[_MaDinhDanh].IPFS_Image);
+    }
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //          TruongHoc Register Smart Contract              //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//
+    struct TruongHoc{
+        bool Is_Registered;
+        string IPFS_Information;
+        string IPFS_Publickey;
+    }
+    
+    mapping (address => TruongHoc)public TruongHocs;
+      
+        
+    function Them_TruongHoc(address _address, string _IPFS_Information,  string _IPFS_Publickey) onlyUyban public {
+        require(_address != 0);
+        TruongHocs[_address].Is_Registered = true;
+        TruongHocs[_address].IPFS_Information = _IPFS_Information;
+        TruongHocs[_address].IPFS_Publickey = _IPFS_Publickey;
+    }
+    
+    function Sua_TruongHoc(address _address, string _IPFS_Information) onlyUyban public {
+        require(TruongHocs[_address].Is_Registered == true);
+        TruongHocs[_address].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Xoa_TruongHoc(address _address) onlyUyban public {
+        require(TruongHocs[_address].Is_Registered == true);
+        TruongHocs[_address].Is_Registered = false;
+    }
+
+    function Xem_TruongHoc(address _address) view public returns (address, bool, string) {
+        return (_address, Canhsats[_address].Is_Registered, Canhsats[_address].IPFS_Information);
+    }
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //        Student Smart Contract                        //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//   
+    struct SinhVien{
+        bool Is_Registered;
+        uint40 MaDinhDanh;
+        uint40 MaSinhVien;
+        string IPFS_Information;
+        
+    }
+
+    modifier onlyTruongHoc {
+        require(TruongHocs[msg.sender].Is_Registered == true);
+        _;
+    }
+
+    mapping (uint40 => SinhVien) public SinhViens;
+   // mapping (address => Canhsat) public Canhsats;
+     
+    function Them_SinhVien(uint40 _MaDinhDanh, uint40 _MaSinhVien, string _IPFS_Information) onlyTruongHoc public {
+        require(CongDans[_MaDinhDanh].Is_register == true);
+        SinhViens[_MaSinhVien].Is_Registered = true;
+        SinhViens[_MaSinhVien].MaDinhDanh = _MaDinhDanh;
+        SinhViens[_MaSinhVien].MaSinhVien = _MaSinhVien;
+        SinhViens[_MaSinhVien].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Sua_SinhVien(uint40 _MaSinhVien, string _IPFS_Information) onlyTruongHoc public {
+        require( SinhViens[_MaSinhVien].Is_Registered == true);
+        SinhViens[_MaSinhVien].IPFS_Information = _IPFS_Information;
+    }
+    
+  
+    function Xoa_SinhVien(uint40 _MaSinhVien) onlyTruongHoc public{
+        require( SinhViens[_MaSinhVien].Is_Registered = true);
+        SinhViens[_MaSinhVien].Is_Registered = false;
+    }
+    
+    function Xem_SinhVien(uint40 _MaSinhVien) view public returns (string, uint40) {
+        require(SinhViens[_MaSinhVien].Is_Registered == true);
+        return (SinhViens[_MaSinhVien].IPFS_Information, SinhViens[_MaSinhVien].MaSinhVien);
+    }
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //          BangCap Smart Contract                  //
+    //                                                      //
+    //******************************************************//
+    //******************************************************// 
+    struct BangCap{
+        bool Is_Registered;
+        uint40 MaSinhVien;
+        uint40 MaBangCap;
+        string IPFS_Information;
+    }
+
+    mapping (uint40 => BangCap) public BangCaps;
+   // mapping (address => Canhsat) public Canhsats;
+     
+    function Them_BangCap(uint40 _MaSinhVien, uint40 _MaBangCap, string _IPFS_Information) onlyTruongHoc public {
+        require(SinhViens[_MaSinhVien].Is_Registered == true);
+        BangCaps[_MaBangCap].Is_Registered = true;
+        BangCaps[_MaBangCap].MaSinhVien = _MaSinhVien;
+        BangCaps[_MaBangCap].MaBangCap = _MaBangCap;
+        BangCaps[_MaBangCap].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Sua_BangCap(uint40 _MaBangCap, string _IPFS_Information) onlyTruongHoc public {
+        require( BangCaps[_MaBangCap].Is_Registered == true);
+        BangCaps[_MaBangCap].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Xoa_BangCap(uint40 _MaBangCap) onlyTruongHoc public {
+         require( BangCaps[_MaBangCap].Is_Registered = true);
+        BangCaps[_MaBangCap].Is_Registered = false;
+    }
+
+    function Xem_BangCap(uint40 _MaBangCap) view public returns (string, uint40) {
+        require(BangCaps[_MaBangCap].Is_Registered == true);
+        return (BangCaps[_MaBangCap].IPFS_Information, BangCaps[_MaBangCap].MaBangCap);
+    }
+    
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //          DoanhNghiep Register Smart Contract            //
+    //                                                      //
+    //******************************************************//
+    //******************************************************//
+    
+    struct DoanhNghiep{
+        bool Is_Registered;
+        string IPFS_Information;
+        string IPFS_Publickey;
+    }
+    
+    mapping (address => DoanhNghiep)public DoanhNghieps;
+      
+        
+    function Them_DoanhNghiep(address _address, string _IPFS_Information,  string _IPFS_Publickey) onlyUyban public {
+        require(_address != 0);
+        DoanhNghieps[_address].Is_Registered = true;
+        DoanhNghieps[_address].IPFS_Information = _IPFS_Information;
+        DoanhNghieps[_address].IPFS_Publickey = _IPFS_Publickey;
+    }
+    
+    function Sua_DoanhNghiep(address _address, string _IPFS_Information) onlyUyban public {
+        require(DoanhNghieps[_address].Is_Registered == true);
+        DoanhNghieps[_address].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Xoa_DoanhNghiep(address _address) onlyUyban public {
+        require(DoanhNghieps[_address].Is_Registered == true);
+        DoanhNghieps[_address].Is_Registered = false;
+    }
+
+    function Xem_DoanhNghiep(address _address) view public returns (address, bool, string) {
+        return (_address, DoanhNghieps[_address].Is_Registered, DoanhNghieps[_address].IPFS_Information);
+    }
+    
+    //******************************************************//
+    //******************************************************//
+    //                                                      //
+    //          Candidate Smart Contract                  //
+    //                                                      //
+    //******************************************************//
+    //******************************************************// 
+    struct NhanVien{
+        bool Is_Registered;
+        uint40 MaBangCap;
+        uint40 MaNhanVien;
+        string IPFS_Information;
+    }
+    
+    modifier onlyDoanhNghiep {
+        require(DoanhNghieps[msg.sender].Is_Registered == true);
+        _;
+    }
+
+    mapping (uint40 => NhanVien) public NhanViens;
+
+    function Them_NhanVien(uint40 _MaBangCap, uint40 _MaNhanVien, string _IPFS_Information) onlyDoanhNghiep public {
+        require(_MaBangCap != 0);
+        NhanViens[_MaNhanVien].Is_Registered = true;
+        NhanViens[_MaNhanVien].MaNhanVien = _MaNhanVien;
+        NhanViens[_MaNhanVien].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Sua_NhanVien(uint40 _MaNhanVien, string _IPFS_Information) onlyDoanhNghiep public {
+        require( NhanViens[_MaNhanVien].Is_Registered == true);
+        NhanViens[_MaNhanVien].IPFS_Information = _IPFS_Information;
+    }
+    
+    function Xoa_NhanVien(uint40 _MaNhanVien) onlyDoanhNghiep public {
+         require( NhanViens[_MaNhanVien].Is_Registered = true);
+        NhanViens[_MaNhanVien].Is_Registered = false;
+    }
+    
+    function Xem_NhanVien(uint40 _MaNhanVien) view public returns (string, uint40) {
+        require(NhanViens[_MaNhanVien].Is_Registered == true);
+        return (NhanViens[_MaNhanVien].IPFS_Information, NhanViens[_MaNhanVien].MaNhanVien);
+    }
+ 
+}
