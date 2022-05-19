@@ -1,0 +1,835 @@
+
+/*Header*/
+.bg-dark {
+  position: relative;
+  background: #285b96 !important;
+  height: 120px;
+  width: 100%;
+  text-align: center;
+  padding-top:20px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+nav a:first-child {
+  margin: 0px !important; 
+  width: 100% !important;
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 480px)
+{
+  .btn-sm,
+  .btn-group-sm > .btn {
+    font-size: 1.1rem;
+  }
+
+}
+
+/* wrapper */
+#wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar {
+  top: 20px;
+  width: 350px !important;
+  min-height: calc(100vh - 0px);
+  position: relative;
+  background-color: rgb(232, 248, 248);
+}
+
+.VerticalHome{
+  display:block;
+  width: 280px;
+  text-align: center;
+  height: 45px;
+  padding-top:5px;
+  border-top-right-radius: 7px;
+  background-color: #285b96;
+  border: 1px solid #285b96;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: rgb(7, 7, 7);
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 10px;
+  border-bottom: 1px solid #aaafb3 !important;
+}
+
+.navbar-nav .nav-item.active .nav-link:hover {
+  border: 1px solid floralwhite;
+  color: #105199;
+}
+
+.nav-item .nav-link{
+  color: rgb(7, 7, 7);
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+
+.nav-item .nav-link:hover{
+  border: 1px solid #aaafb3;
+  color: #105199;
+}
+
+@media screen and (max-width: 768px){
+  .sidebar{
+    display: block;
+    width: 200px !important;
+  }
+  .VerticalHome{
+    width: 200px;
+  }
+  nav a:first-child{
+    font-size: 30px;
+  }
+  
+}
+
+@media screen and (max-width: 480px){
+  .navbar-nav .nav-item.active  .nav-link{
+    font-size: 17px;
+    text-align: center;
+    padding-left: 0px;
+  }
+  .nav-item .nav-link{
+    font-size: 17px;
+    text-align: center;
+    padding-left: 0px;
+  }
+
+  nav a:first-child{
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+  }
+  .sidebar{
+    width: 130px !important;
+  }
+  .VerticalHome{
+    width: 130px;
+    font-size: 17px;
+  }
+}
+
+#wrapper #content-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.breadcrumb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #EEE8AA;
+  border-radius: 0.25rem;
+
+  top: 10px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #FFFFFF;
+}
+
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol, li, a{
+  font-size: 19px;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* form register */
+body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #222;
+  font-weight: 500;
+  font-family: "Poppins";
+  
+}
+
+.register-form {
+  padding: 93px 115px 90px 80px;
+  margin-bottom: -8px;
+}
+
+.form-input{
+  margin: 10px 60px 10px 0px;
+}
+
+label,
+input {
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+label.required {
+  position: relative;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+label.output {
+  text-transform: capitalize;
+  font-size: 17px;
+  position: static;
+}
+
+label.required:after {
+  content: "*";
+  margin-left: 2px;
+  color: #b90000;
+}
+
+input {
+  box-sizing: border-box;
+  border: 1px solid #A9A9A9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  font-size: 17px;
+  font-family: "Poppins";
+  height: 40px;
+}
+input:focus {
+  border: 1px solid #329e5e;
+}
+
+
+.form-submit {
+  text-align: left;
+}
+.form-submit1 {
+  text-align: right;
+}
+.submit {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+}
+
+.submit {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+}
+.submit1 {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  background: #065bb1;
+  color: #fff;
+  margin-right: 100px;
+}
+#submit1:hover {
+  background-color: #267747;
+}
+#submit {
+  background: #065bb1;
+  color: #fff;
+  margin-right: 100px;
+}
+#submit:hover {
+  background-color: #267747;
+}
+
+.form-input {
+  position: relative;
+}
+
+
+.md-headline {
+  color: rgb(7, 32, 15);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: capitalize;
+}
+
+.md-headline1 {
+  color: #00008B;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: capitalize;
+}
+.md-headline2 {
+  color: #a71712;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+  align-content: center;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: capitalize;
+}
+.Police1{
+  top: 30px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  background: #c4e4c4;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+
+}
+
+.Police2{
+  top: 60px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #FFFFFF;
+}
+
+.Police3{
+  top: 60px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #FFFFFF;
+}
+
+.Police4{
+  top: 60px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #FFFFFF;
+}
+
+
+
+.Commitee{
+  top: 30px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+.Commitee1{
+  top: 30px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+.Commitee2{
+  top: 60px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+.Commitee3{
+  top: 120px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+
+.Citizen1{
+  top: 30px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+.Government2{
+  top: 30px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  background: #c4e4c4;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+
+}
+
+.Government3{
+  top: 60px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #FFFFFF;
+}
+.PrintPDF{
+  top: 20px;
+  transition: opacity 0.5s ease-in;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #572903;
+  border-radius: 10px;
+  padding: 10px 10px 30px 20px;
+  background: #c4e4c4;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .md-headline {
+    margin-left: 0px;
+  }
+
+  .manufacturer {
+    width: 62%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .md-headline {
+    font-size: 18px;
+  }
+  .md-headline1 {
+    font-size: 23px;
+  }
+  .manufacturer {
+    width: 56%;
+  }
+}
+@media screen and (max-width: 768px) {
+
+  .md-headline {
+    font-size: 18px;
+  }
+  .md-headline1 {
+    font-size: 23px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .submit {
+    width: 90%;
+    height: 40px;
+  }
+
+  .fa {
+    display: block;
+  }
+
+  #submit {
+    margin-bottom: 20px;
+    margin-right: 0px;
+  }
+
+  .form-input {
+    width: 90%;
+    margin: 10px 60px 10px 0px;
+  }
+
+  
+  input {
+    height: 37px;
+  }
+
+  .md-headline {
+    font-size: 18px;
+  }
+  .md-headline1 {
+    font-size: 23px;
+  }
+  .manufacturer {
+    margin-left: 0px;
+    width: 64%;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .manufacturer{
+    width: 57%;
+    padding: 10px 10px 30px 15px;
+  }
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  color: rgb(7, 7, 7);
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  background-color: rgb(232, 248, 248);
+  padding: 16px;
+  border: none;
+ 
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-flexbox;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #d1c0c0;
+  min-width: 370px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: rgb(102, 100, 231); color: #eecd10;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #d1a2a2;color: rgb(226, 25, 25);}
+.show {display:block;}
+
+.bg-img {
+  /* The image used */
+  background-image: url("10.jpg");
+
+  min-height: 120px;
+  min-width: 100%;
+  
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+.backgr-img{
+  /* The image used */
+  background-image: url("7.jpg");
+
+  min-height: 300px;
+  min-width: 100%;
+  
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Style the navbar */
+#navbar1 {
+  overflow: hidden;
+  background-color: #285b96;
+}
+
+/* Navbar links */
+#navbar1 a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Page content */
+.content1 {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky1 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky1 + .content1 {
+  padding-top: 30px;
+}
+
+/* popup form
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/**/
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.App {
+  text-align: center;
+}
+
+.Post{
+  max-width: 800px;
+  width: 100%;
+  display: table;
+  margin: 0 auto;
+  padding: 20px 50px;
+  background: #c4e4c4;
+
+
+}
+.mt4{
+  background: #c4e4c4;
+  width: '210mm';
+  min-Height: '297mm';
+  margin-Left: 'auto';
+  margin-Right: 'auto';
+}
