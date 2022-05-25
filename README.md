@@ -25,6 +25,7 @@ Cài đặt các package cần thiết:
 **#### Tạo một Project ####**
 
 Cài đặt create-react-app: dùng để tự động hóa việc xây dựng project ReactJS mà không phải config.
+
 Cài đặt bằng câu lệnh: npm install –g create-react-app
 
 Tạo mới project: create-react-app [project-name]
