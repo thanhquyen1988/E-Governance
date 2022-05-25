@@ -23,6 +23,7 @@ Cài đặt các package cần thiết:
 + JSX/Babel Syntax Highlighting.
 
 **#### Tạo một Project ####**
+
 Cài đặt create-react-app: dùng để tự động hóa việc xây dựng project ReactJS mà không phải config.
 Cài đặt bằng câu lệnh: 
 npm install –g create-react-app
